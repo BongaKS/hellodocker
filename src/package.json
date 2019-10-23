@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "basic hello world node app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bongaks@bitbucket.org/bongaks/test.git"
+  },
+  "author": "bongad",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/bongaks/test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
