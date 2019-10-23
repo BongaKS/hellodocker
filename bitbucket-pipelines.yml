@@ -1,0 +1,29 @@
+# This is a sample build configuration for Docker.
+# Check our guides at https://confluence.atlassian.com/x/O1toN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: atlassian/default-image
+
+pipelines:
+ branches:
+  master:
+    - step:
+        services:
+          - docker
+        script: # Modify the commands below to build your repository.
+          # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings
+          - export IMAGE_NAME=helloworld
+          - export DOCKER_HUB_USERNAME=bongad
+          - export DOCKER_HUB_TOKEN=0ac20d88-72c4-4e29-970e-2ca0af9d85c1
+          - export TAG=0.0.1
+          - export TAGREPO=bongad/helloworld
+
+          # build the Docker image (this will use the Dockerfile in the root of the repo)
+          - docker build -t $IMAGE_NAME .
+          # authenticate with the Docker Hub registry
+          - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_TOKEN
+          # tag image
+          - docker tag $IMAGE_NAME:latest bongad/helloworld:$TAG
+          # push the new Docker image to the Docker registry
+          - docker  push $TAGREPO:$TAG
