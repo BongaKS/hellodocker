@@ -15,7 +15,7 @@ pipelines:
           # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings
           - export IMAGE_NAME=helloworld
           - export DOCKER_HUB_USERNAME=bongad
-          - export DOCKER_HUB_TOKEN=0ac20d88-72c4-4e29-970e-2ca0af9d85c1
+          - export DOCKER_HUB_TOKEN=
           - export TAG=0.0.1
           - export TAGREPO=bongad/helloworld
 
